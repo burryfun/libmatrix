@@ -1,6 +1,6 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-
+typedef unsigned int uint;
 class Matrix
 {
 public:
@@ -8,25 +8,25 @@ public:
     ~Matrix();
     Matrix(const Matrix&);
     Matrix& operator=(const Matrix&);
-    Matrix(unsigned int row, unsigned int column);
-    Matrix& setSize(unsigned int row, unsigned int column);
+    Matrix(uint row, uint column);
+    Matrix& setSize(uint row, uint column);
     unsigned int getRowCount() const;
     unsigned int getColumnCount() const;
-    double* operator[] (unsigned int i) const;
-
+    double* operator[] (uint i) const;
+    Matrix& fillRandom(const uint);
 private:
-    unsigned int rowCount_;
-    unsigned int columnCount_;
+    uint rowCount_;
+    uint columnCount_;
     double** matrix_;
 };
-
-// Matrix MatrixReduction(Matrix m, int k);
-// double MatrixDeterminant(Matrix);
-// Matrix MatrixTranspose(Matrix);
-// void MatrixScalarMultiply(Matrix&, int);
-// Matrix MatrixSum(Matrix, Matrix);
-// Matrix MatrixMultiply(Matrix, Matrix);
-// Matrix MatrixLeftDivision(Matrix, Matrix);
-// Matrix MatrixRightDivision(Matrix, Matrix);
+int random(const uint);
+Matrix matrixReduction(const Matrix&, int);
+double matrixDeterminant(const Matrix&);
+Matrix matrixTranspose(const Matrix&);
+void matrixScalarMultiply(Matrix&, int);
+Matrix matrixSum(const Matrix&, const Matrix&);
+Matrix matrixMultiply(const Matrix&, const Matrix&);
+Matrix matrixLeftDivision(const Matrix&, const Matrix&);
+Matrix matrixRightDivision(const Matrix&, const Matrix&);
 
 #endif // MATRIX_H
