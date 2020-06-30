@@ -174,10 +174,10 @@ Matrix matrixMultiply(const Matrix& A, const Matrix& B)
 
 Matrix matrixLeftDivision(const Matrix& A, const Matrix& B)
 {
-    return MatrixMultiply(MatrixTranspose(A), B);
+    return matrixMultiply(matrixTranspose(A), B);
 }
 
 Matrix matrixRightDivision(const Matrix& A, const Matrix& B)
 {
-    return MatrixMultiply(A, MatrixTranspose(B));
+    return matrixMultiply(A, matrixTranspose(B));
 }
